@@ -1,0 +1,170 @@
+@import url("http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+
+/* The main menu is the equilateral triangle */
+
+// Global varibals
+$first-width:10rem;//the length of the first item, do not include the length of its 'after'
+$items:4;//the amount of the menu, do not count the toggle button
+$items-font-size:1rem;//menu's font-size
+$items-padding:(($first-width/($items+1))-$items-font-size)/2;//calculate the padding
+$step:$items-font-size+$items-padding*2;//per-menu's height
+$base-time:0.1s;
+$items-color-index:(#00dffc #45d9fd) (#2ad4fd #29cef5) (#29cef5 #27c4ea) (#27c4ea #00bcea);//pairs of each menu's background-color, first is the normal color, second is the "hover" color
+$item-close-color:#00bcea #00b3df;//the background-color setting of toggle button
+
+@each $colors in $items-color-index{
+    $item-color:nth($colors,1);
+    $item-color-hover:nth($colors,2);
+    $item-index:index($items-color-index,$colors)+1;
+    .menu__item:nth-child(#{$item-index})::after{
+        border: ($items-padding*2+$items-font-size)/2 solid $item-color;
+    }
+    .menu__item:nth-child(#{$item-index}) {
+        background-color: $item-color;
+    }
+    .menu__item:nth-child(#{$item-index}):hover {
+        background-color: $item-color-hover;
+    }
+    .menu__item:nth-child(#{$item-index}):hover::after {
+        border: ($items-padding*2+$items-font-size)/2 solid $item-color-hover;
+        border-right: ($items-padding*2+$items-font-size)/2 solid transparent;
+        border-bottom: ($items-padding*2+$items-font-size)/2 solid transparent;
+    }
+}
+.menu__item,
+.menu__item::before,
+.menu__item::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.menu__item {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu input[type=checkbox] {
+    position: absolute;
+    display: none;
+}
+/*------------------------------------*
+  MENU
+\*------------------------------------*/
+
+.menu {
+    position: fixed;
+    font-size: 16px;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/*------------------------------------*
+  MENU ITEM
+\*------------------------------------*/
+
+.menu__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: $items-font-size;
+    line-height: $items-font-size;
+    font-weight: 300;
+    padding: $items-padding;
+    transform: translateX(calc(-100% - 32px));
+    transition: background-color 0.2s;
+}
+@if not($first-width - $items* $step == 0rem) and not(abs($first-width - $items* $step)+$first-width - $items* $step==0rem){
+@for $i from 2 to 2+$items {
+    .menu__item:nth-child(#{$i}) {
+    width: $first-width - $step * ($i - 2);
+    }
+    .menu__item:nth-child(#{$i})::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: 100%;
+    top: 0;
+    border-right: ($items-padding*2+$items-font-size)/2 solid transparent;
+    border-bottom: ($items-padding*2+$items-font-size)/2 solid transparent;
+    transition: border 0.2s;
+}
+}
+}
+@else{
+/*
+    If you can see this notes here, It means your settings is illegal! Please check your settings first!
+*/
+}
+
+
+/*------------------------------------*
+  MENU CLOSE
+\*------------------------------------*/
+
+.menu__close {
+    position: relative;
+    font-family: FontAwesome;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+    cursor: pointer;
+    transform: translateX(-100%);
+}
+
+.menu__close::before {
+    position: absolute;
+    content: "\f00d";
+    top: $items-padding;
+    left: $items-padding;
+    z-index: 1;
+}
+
+.menu__close::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid nth($item-close-color,1);
+    border-right: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid transparent;
+    border-bottom: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid transparent;
+    transition: border 0.2s;
+}
+.menu__close:hover::after {
+    border: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid nth($item-close-color,2);
+    border-right: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid transparent;
+    border-bottom: ($first-width + $items-padding * 2 + $items-font-size - $items * $step)/2 solid transparent;
+}
+//hide ths items after click
+@for $i from 1+$items to 1 {
+    input[type=checkbox]:checked ~ .menu__item:nth-child(#{$i}) {
+      transition: transform 0.2s 0s + abs($i - $items - 1)/10, background-color 0.2s;
+      transform: translateX(calc(-100% - #{$items-font-size} - #{$items-padding} * 2)) !important;
+    }
+}
+
+input[type=checkbox]:checked ~ .menu__close {
+    transition: transform 0.2s 0.3s, background-color 0.2s;
+    transform: translateY(0-$step*$items);
+}
+
+input[type=checkbox]:checked ~ .menu__close::before {
+    content: "\f0c9";
+}
+
+//show the items after click!
+@for $i from 2 to 2+$items {
+    input[type=checkbox]:not(:checked) ~ .menu__item:nth-child(#{$i}) {
+      transition: transform 0.2s $base-time + ($i - 2)/10, background-color 0.2s;
+      transform: translateX(0);
+    }
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__close {
+    transition: transform 0.2s $base-time, background-color 0.2s;
+    transform: translateY(0);
+}

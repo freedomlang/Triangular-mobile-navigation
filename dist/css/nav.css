@@ -1,0 +1,351 @@
+@import url("http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+/* The main menu is the equilateral triangle */
+.menu__item:nth-child(2)::after {
+  border: 1rem solid #00dffc;
+}
+
+.menu__item:nth-child(2) {
+  background-color: #00dffc;
+}
+
+.menu__item:nth-child(2):hover {
+  background-color: #45d9fd;
+}
+
+.menu__item:nth-child(2):hover::after {
+  border: 1rem solid #45d9fd;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+}
+
+.menu__item:nth-child(3)::after {
+  border: 1rem solid #2ad4fd;
+}
+
+.menu__item:nth-child(3) {
+  background-color: #2ad4fd;
+}
+
+.menu__item:nth-child(3):hover {
+  background-color: #29cef5;
+}
+
+.menu__item:nth-child(3):hover::after {
+  border: 1rem solid #29cef5;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+}
+
+.menu__item:nth-child(4)::after {
+  border: 1rem solid #29cef5;
+}
+
+.menu__item:nth-child(4) {
+  background-color: #29cef5;
+}
+
+.menu__item:nth-child(4):hover {
+  background-color: #27c4ea;
+}
+
+.menu__item:nth-child(4):hover::after {
+  border: 1rem solid #27c4ea;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+}
+
+.menu__item:nth-child(5)::after {
+  border: 1rem solid #27c4ea;
+}
+
+.menu__item:nth-child(5) {
+  background-color: #27c4ea;
+}
+
+.menu__item:nth-child(5):hover {
+  background-color: #00bcea;
+}
+
+.menu__item:nth-child(5):hover::after {
+  border: 1rem solid #00bcea;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+}
+
+.menu__item,
+.menu__item::before,
+.menu__item::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.menu__item {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu input[type=checkbox] {
+  position: absolute;
+  display: none;
+}
+
+/*------------------------------------*
+  MENU
+\*------------------------------------*/
+.menu {
+  position: fixed;
+  font-size: 16px;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+/*------------------------------------*
+  MENU ITEM
+\*------------------------------------*/
+.menu__item {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 300;
+  padding: 0.5rem;
+  -webkit-transform: translateX(-webkit-calc(-100% - 32px));
+      -ms-transform: translateX(calc(-100% - 32px));
+          transform: translateX(calc(-100% - 32px));
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.menu__item:nth-child(2) {
+  width: 10rem;
+}
+
+.menu__item:nth-child(2)::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 100%;
+  top: 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+}
+
+.menu__item:nth-child(3) {
+  width: 8rem;
+}
+
+.menu__item:nth-child(3)::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 100%;
+  top: 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+}
+
+.menu__item:nth-child(4) {
+  width: 6rem;
+}
+
+.menu__item:nth-child(4)::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 100%;
+  top: 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+}
+
+.menu__item:nth-child(5) {
+  width: 4rem;
+}
+
+.menu__item:nth-child(5)::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 100%;
+  top: 0;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+}
+
+/*------------------------------------*
+  MENU CLOSE
+\*------------------------------------*/
+.menu__close {
+  position: relative;
+  font-family: FontAwesome;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
+  cursor: pointer;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.menu__close::before {
+  position: absolute;
+  content: "\f00d";
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+}
+
+.menu__close::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 2rem solid #00bcea;
+  border-right: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+}
+
+.menu__close:hover::after {
+  border: 2rem solid #00b3df;
+  border-right: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+}
+
+input[type=checkbox]:checked ~ .menu__item:nth-child(5) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0s;
+  transition: transform 0.2s 0s, background-color 0.2s;
+  transition: transform 0.2s 0s, background-color 0.2s, -webkit-transform 0.2s 0s;
+  -webkit-transform: translateX(-webkit-calc(-100% - 1rem - 0.5rem * 2)) !important;
+      -ms-transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+          transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+}
+
+input[type=checkbox]:checked ~ .menu__item:nth-child(4) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: transform 0.2s 0.1s, background-color 0.2s;
+  transition: transform 0.2s 0.1s, background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  -webkit-transform: translateX(-webkit-calc(-100% - 1rem - 0.5rem * 2)) !important;
+      -ms-transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+          transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+}
+
+input[type=checkbox]:checked ~ .menu__item:nth-child(3) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  transition: transform 0.2s 0.2s, background-color 0.2s;
+  transition: transform 0.2s 0.2s, background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  -webkit-transform: translateX(-webkit-calc(-100% - 1rem - 0.5rem * 2)) !important;
+      -ms-transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+          transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+}
+
+input[type=checkbox]:checked ~ .menu__item:nth-child(2) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: transform 0.2s 0.3s, background-color 0.2s;
+  transition: transform 0.2s 0.3s, background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  -webkit-transform: translateX(-webkit-calc(-100% - 1rem - 0.5rem * 2)) !important;
+      -ms-transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+          transform: translateX(calc(-100% - 1rem - 0.5rem * 2)) !important;
+}
+
+input[type=checkbox]:checked ~ .menu__close {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: transform 0.2s 0.3s, background-color 0.2s;
+  transition: transform 0.2s 0.3s, background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  -webkit-transform: translateY(-8rem);
+      -ms-transform: translateY(-8rem);
+          transform: translateY(-8rem);
+}
+
+input[type=checkbox]:checked ~ .menu__close::before {
+  content: "\f0c9";
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__item:nth-child(2) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: transform 0.2s 0.1s, background-color 0.2s;
+  transition: transform 0.2s 0.1s, background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__item:nth-child(3) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  transition: transform 0.2s 0.2s, background-color 0.2s;
+  transition: transform 0.2s 0.2s, background-color 0.2s, -webkit-transform 0.2s 0.2s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__item:nth-child(4) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  transition: transform 0.2s 0.3s, background-color 0.2s;
+  transition: transform 0.2s 0.3s, background-color 0.2s, -webkit-transform 0.2s 0.3s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__item:nth-child(5) {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.4s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.4s;
+  transition: transform 0.2s 0.4s, background-color 0.2s;
+  transition: transform 0.2s 0.4s, background-color 0.2s, -webkit-transform 0.2s 0.4s;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+
+input[type=checkbox]:not(:checked) ~ .menu__close {
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  transition: transform 0.2s 0.1s, background-color 0.2s;
+  transition: transform 0.2s 0.1s, background-color 0.2s, -webkit-transform 0.2s 0.1s;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
