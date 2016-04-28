@@ -7,6 +7,8 @@ This style is base from [MoKev's][1] idea and [code][2], and i just i just Optim
 - $base-time: base time about the animation
 - $items-color-index: background-color of menu-item befor and after user put the mouse on it
 - $item-close-color: background-color of the toggle button befor and after user put the mouse on it
+
+
 ### Thanks
 Thank you for [MoKev][1]!
 
